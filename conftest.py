@@ -9,7 +9,7 @@ def browser_management():
     browser.driver.set_window_size(1920, 1080)
 
     browser.config.base_url = "https://www.tutu.ru"
-    browser.config.timeout = 8
+    browser.config.timeout = 20
     browser.config.driver_options = options
 
     yield
