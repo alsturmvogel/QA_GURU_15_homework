@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from pages.main_page import MainPage
 from pages.chat_widget import ChatWidget
+from pages.main_page import MainPage
 
 
 def test_user_can_upload_file_to_chat():

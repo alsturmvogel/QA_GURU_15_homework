@@ -1,5 +1,5 @@
-from pages.main_page import MainPage
 from pages.chat_widget import ChatWidget
+from pages.main_page import MainPage
 
 
 def test_user_can_see_jarvel_capabilities_texts():
