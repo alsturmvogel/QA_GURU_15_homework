@@ -13,13 +13,13 @@ class ChatWidget:
     FILE_INPUT = 'input[type="file"]'
 
     def _switch_to_iframe(self):
-        with allure.step('Зайти в чат'):
+        with allure.step('Перейти в область чата'):
             browser.element(self.IFRAME).should(be.visible)
             browser.driver.switch_to.frame(browser.element(self.IFRAME).locate())
         return self
 
     def _switch_to_default_content(self):
-        with allure.step('Вернуться на главную'):
+        with allure.step('Вернуться из области чата на страницу'):
             browser.driver.switch_to.default_content()
         return self
 
