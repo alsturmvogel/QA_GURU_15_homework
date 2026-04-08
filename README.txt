@@ -31,4 +31,4 @@ allure serve tests/allure-results
 
 Пример отчета в телеграмме
 
-https://github.com/alsturmvogel/QA_GURU_15_homework/raw/main/art/resources/primer.png
+https://github.com/alsturmvogel/QA_GURU_15_homework/raw/main/resources/primer.png
