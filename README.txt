@@ -1,35 +1,49 @@
-##Описание
-Проект содержит UI-автотесты для сайта [tutu.ru](https://www.tutu.ru/) с использованием:
-- Python
-- Pytest
-- Selene
-- Selenium
-- Allure Report
+# UI автотесты для tutu.ru
 
-Тестируется чат-ассистент **Джарвел**:
-- отображение приветственного сообщения
-- отображение текста возможностей ассистента
-- отправка текстового сообщения
-- запуск голосовой записи
-- загрузка файла в чат
+## Описание проекта
 
-##Локальный запуск тестов
+Проект содержит UI-автотесты для сайта [tutu.ru](https://www.tutu.ru/) с использованием **Python + Pytest + Selene + Selenium + Allure**.
 
-Запуск всех тестов
-pytest
+Объект тестирования — чат-ассистент **Джарвел**.
 
-Просмотр Allure-отчёта локально
-allure serve tests/allure-results
+Покрыты сценарии:
+- отображение приветственного сообщения;
+- отображение текста с возможностями ассистента;
+- отправка текстового сообщения;
+- запуск голосовой записи;
+- загрузка файла в чат.
 
-##Удаленный запуск в Jenkins
-Тесты запускаются в Jenkins job.
+---
 
-После выполнения:
+## Используемый стек
 
-формируется Allure Report
-ссылка на отчёт доступна в Jenkins
-результат отправляется в Telegram
+<div align="center">
+<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python-original.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
+<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest-original.svg" title="Pytest" alt="Pytest" width="40" height="40"/>&nbsp;
+<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenium-original.svg" title="Selenium" alt="Selenium" width="40" height="40"/>&nbsp;
+<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="40" height="40"/>&nbsp;
+<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/github-original.svg" title="GitHub" alt="GitHub" width="40" height="40"/>&nbsp;
+<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure-report.png" title="Allure Report" alt="Allure Report" width="40" height="40"/>&nbsp;
+</div>
 
-Пример отчета в телеграмме
+> Если файлов с иконками ещё нет, создай папку `media` в репозитории и положи туда svg/png-иконки.
 
-https://github.com/alsturmvogel/QA_GURU_15_homework/raw/main/resources/primer.png
+---
+
+## Что проверяют тесты
+
+Тесты проверяют работу чата Джарвел на главной странице `tutu.ru`:
+
+- открытие чата;
+- отображение приветствия:
+  - `Привет, я Джарвел!`
+  - `Знаю всё про путешествия`
+- отображение возможностей ассистента:
+  - `Предложу идеи для отпуска: куда съездить, что посмотреть`
+  - `Спланирую ваше путешествие: подскажу маршрут, жильё, билеты`
+  - `Помогу с обменом и возвратом заказа. Если надо, позову оператора`
+- отправку текстового сообщения `Привет`;
+- запуск голосового ввода;
+- загрузку файла в чат и получение ответа.
+
+---
