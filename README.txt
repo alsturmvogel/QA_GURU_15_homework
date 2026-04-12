@@ -1,3 +1,4 @@
+##Описание
 Проект содержит UI-автотесты для сайта [tutu.ru](https://www.tutu.ru/) с использованием:
 - Python
 - Pytest
@@ -12,7 +13,7 @@
 - запуск голосовой записи
 - загрузка файла в чат
 
-Локальный запуск тестов
+##Локальный запуск тестов
 
 Запуск всех тестов
 pytest
@@ -20,7 +21,7 @@ pytest
 Просмотр Allure-отчёта локально
 allure serve tests/allure-results
 
-Удаленный запуск в Jenkins
+##Удаленный запуск в Jenkins
 Тесты запускаются в Jenkins job.
 
 После выполнения:
@@ -30,3 +31,5 @@ allure serve tests/allure-results
 результат отправляется в Telegram
 
 Пример отчета в телеграмме
+
+https://github.com/alsturmvogel/QA_GURU_15_homework/raw/main/resources/primer.png
