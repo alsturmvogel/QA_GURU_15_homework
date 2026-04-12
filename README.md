@@ -26,8 +26,6 @@
 <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure-report.png" title="Allure Report" alt="Allure Report" width="40" height="40"/>&nbsp;
 </div>
 
-> Если файлов с иконками ещё нет, создай папку `media` в репозитории и положи туда svg/png-иконки.
-
 ---
 
 ## Что проверяют тесты ##
@@ -47,3 +45,34 @@
 - загрузку файла в чат и получение ответа.
 
 ---
+## Параметризованный запуск тестов ##
+Проект поддерживает запуск с параметрами из терминала.
+
+# Пример локального запуска #
+
+pytest tests \
+  --base_url=https://www.tutu.ru \
+  --browser_name=chrome \
+  --headless=false \
+  --window_width=1920 \
+  --window_height=1080
+
+# Пример headless-запуска
+
+pytest tests \
+  --base_url=https://www.tutu.ru \
+  --browser_name=chrome \
+  --headless=true \
+  --window_width=1920 \
+  --window_height=1080
+
+# Пример удалённого запуска через Selenoid
+
+pytest tests \
+  --base_url=https://www.tutu.ru \
+  --browser_name=chrome \
+  --browser_version=127.0 \
+  --remote_url=selenoid.autotests.cloud \
+  --headless=true \
+  --window_width=1920 \
+  --window_height=1080
