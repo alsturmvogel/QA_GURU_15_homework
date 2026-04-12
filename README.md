@@ -45,10 +45,10 @@
 - загрузку файла в чат и получение ответа.
 
 ---
-## Параметризованный запуск тестов ##
+# Параметризованный запуск тестов #
 Проект поддерживает запуск с параметрами из терминала.
 
-# Пример локального запуска #
+## Пример локального запуска ##
 
 pytest tests \
   --base_url=https://www.tutu.ru \
@@ -57,7 +57,7 @@ pytest tests \
   --window_width=1920 \
   --window_height=1080
 
-# Пример headless-запуска
+## Пример headless-запуска ##
 
 pytest tests \
   --base_url=https://www.tutu.ru \
@@ -66,7 +66,7 @@ pytest tests \
   --window_width=1920 \
   --window_height=1080
 
-# Пример удалённого запуска через Selenoid
+## Пример удалённого запуска через Selenoid ##
 
 pytest tests \
   --base_url=https://www.tutu.ru \
