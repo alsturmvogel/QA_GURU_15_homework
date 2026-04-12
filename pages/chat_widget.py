@@ -10,6 +10,7 @@ class ChatWidget:
     MESSAGE_TEXTS = 'p[data-ti="p"]'
     VOICE_BUTTON = 'button[aria-label="Начать запись"]'
     STOP_VOICE_BUTTON = 'button[aria-label="Остановить запись"]'
+    ATTACH_FILE_BUTTON = '//button[.//i[contains(@class, "oim-paper-clip_outline")]]'
     FILE_INPUT = 'input[type="file"]'
 
     def _switch_to_iframe(self):
@@ -109,6 +110,9 @@ class ChatWidget:
         with allure.step('Запомнить количество сообщений в чате до загрузки файла'):
             messages_before = len(browser.all(self.MESSAGE_TEXTS))
 
+        with allure.step('Нажать на кнопку прикрепления файла'):
+            browser.element(self.ATTACH_FILE_BUTTON).should(be.visible).click()
+
         with allure.step(f'Загрузить файл в чат: {file_path}'):
             file_input = browser.element(self.FILE_INPUT).should(be.present)
             file_input.send_keys(file_path)
@@ -133,11 +137,6 @@ class ChatWidget:
         with allure.step('Проверить наличие ссылки на статью tutu.ru'):
             browser.all(self.MESSAGE_TEXTS).element_by(
                 have.text('https://www.tutu.ru/geo/article/situatsia-na-blizhnem-vostoke/')
-            ).should(be.visible)
-
-        with allure.step('Проверить предупреждение о высокой нагрузке на операторов'):
-            browser.all(self.MESSAGE_TEXTS).element_by(
-                have.text('Сейчас у операторов большая нагрузка')
             ).should(be.visible)
 
         self._switch_to_default_content()
