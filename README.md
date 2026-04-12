@@ -1,6 +1,6 @@
-# UI автотесты для tutu.ru
+# UI автотесты для tutu.ru #
 
-## Описание проекта
+## Описание проекта ##
 
 Проект содержит UI-автотесты для сайта [tutu.ru](https://www.tutu.ru/) с использованием **Python + Pytest + Selene + Selenium + Allure**.
 
@@ -15,7 +15,7 @@
 
 ---
 
-## Используемый стек
+## Используемый стек ##
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python-original.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
@@ -30,7 +30,7 @@
 
 ---
 
-## Что проверяют тесты
+## Что проверяют тесты ##
 
 Тесты проверяют работу чата Джарвел на главной странице `tutu.ru`:
 
