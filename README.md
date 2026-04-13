@@ -19,7 +19,7 @@
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/python.png" title="Python" alt="Python" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/pytest_logo.svg" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
+  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/pytest_logo.png" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
   <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/selenoid.png" title="Selenoid" alt="Selenoid" width="50" height="50"/>&nbsp;
   <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/jenkins.png" title="Jenkins" alt="Jenkins" width="50" height="50"/>&nbsp;
   <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/github.png" title="GitHub" alt="GitHub" width="50" height="50"/>&nbsp;
