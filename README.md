@@ -18,12 +18,12 @@
 ## Используемый стек ##
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/python.jpeg" title="Python" alt="Python" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/pytest_logo.jpeg" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/selenoid.jpeg" title="Selenoid" alt="Selenoid" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/jenkins.jpeg" title="Jenkins" alt="Jenkins" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/github.jpeg" title="GitHub" alt="GitHub" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/allure.jpeg" title="Allure Report" alt="Allure Report" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/alsturmvogel/QA_GURU_15_homework/main/resources/python.jpeg" title="Python" alt="Python" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/alsturmvogel/QA_GURU_15_homework/main/resources/pytest_logo.jpeg" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/alsturmvogel/QA_GURU_15_homework/main/resources/selenoid.jpeg" title="Selenoid" alt="Selenoid" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/alsturmvogel/QA_GURU_15_homework/main/resources/jenkins.jpeg" title="Jenkins" alt="Jenkins" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/alsturmvogel/QA_GURU_15_homework/main/resources/github.jpeg" title="GitHub" alt="GitHub" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/alsturmvogel/QA_GURU_15_homework/main/resources/allure.jpeg" title="Allure Report" alt="Allure Report" width="50" height="50"/>&nbsp;
 </div>
 
 ---
@@ -79,4 +79,4 @@ pytest tests \
 
 # Отчеты о тестировании приходят в чат Telegram #
 
-![Telegram](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/primer.jpeg)
+![Telegram](https://github.com/alsturmvogel/QA_GURU_15_homework/main/resources/primer.jpeg)
