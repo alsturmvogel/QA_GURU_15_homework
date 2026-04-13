@@ -1,12 +1,13 @@
 import os
 
 import pytest
-from utils import attach
 from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
+
+from utils import attach
 
 
 def pytest_addoption(parser):

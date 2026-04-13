@@ -2,11 +2,13 @@
 
 ## Описание проекта ##
 
-Проект содержит UI-автотесты для сайта [tutu.ru](https://www.tutu.ru/) с использованием **Python + Pytest + Selene + Selenium + Allure**.
+Проект содержит UI-автотесты для сайта [tutu.ru](https://www.tutu.ru/) с использованием **Python + Pytest + Selene +
+Selenium + Allure**.
 
 Объект тестирования — чат-ассистент **Джарвел**.
 
 Покрыты сценарии:
+
 - отображение приветственного сообщения;
 - отображение текста с возможностями ассистента;
 - отправка текстового сообщения;
@@ -34,48 +36,50 @@
 
 - открытие чата;
 - отображение приветствия:
-  - `Привет, я Джарвел!`
-  - `Знаю всё про путешествия`
+    - `Привет, я Джарвел!`
+    - `Знаю всё про путешествия`
 - отображение возможностей ассистента:
-  - `Предложу идеи для отпуска: куда съездить, что посмотреть`
-  - `Спланирую ваше путешествие: подскажу маршрут, жильё, билеты`
-  - `Помогу с обменом и возвратом заказа. Если надо, позову оператора`
+    - `Предложу идеи для отпуска: куда съездить, что посмотреть`
+    - `Спланирую ваше путешествие: подскажу маршрут, жильё, билеты`
+    - `Помогу с обменом и возвратом заказа. Если надо, позову оператора`
 - отправку текстового сообщения `Привет`;
 - запуск голосового ввода;
 - загрузку файла в чат и получение ответа.
 
 ---
+
 # Параметризованный запуск тестов #
+
 Проект поддерживает запуск с параметрами из терминала.
 
 ## Пример локального запуска ##
 
 pytest tests \
-  --base_url=https://www.tutu.ru \
-  --browser_name=chrome \
-  --headless=false \
-  --window_width=1920 \
-  --window_height=1080
+--base_url=https://www.tutu.ru \
+--browser_name=chrome \
+--headless=false \
+--window_width=1920 \
+--window_height=1080
 
 ## Пример headless-запуска ##
 
 pytest tests \
-  --base_url=https://www.tutu.ru \
-  --browser_name=chrome \
-  --headless=true \
-  --window_width=1920 \
-  --window_height=1080
+--base_url=https://www.tutu.ru \
+--browser_name=chrome \
+--headless=true \
+--window_width=1920 \
+--window_height=1080
 
 ## Пример удалённого запуска через Selenoid ##
 
 pytest tests \
-  --base_url=https://www.tutu.ru \
-  --browser_name=chrome \
-  --browser_version=127.0 \
-  --remote_url=selenoid.autotests.cloud \
-  --headless=true \
-  --window_width=1920 \
-  --window_height=1080
+--base_url=https://www.tutu.ru \
+--browser_name=chrome \
+--browser_version=127.0 \
+--remote_url=selenoid.autotests.cloud \
+--headless=true \
+--window_width=1920 \
+--window_height=1080
 
 # Отчеты о тестировании приходят в чат Telegram #
 
