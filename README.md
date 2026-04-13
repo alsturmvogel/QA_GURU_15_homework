@@ -18,12 +18,12 @@
 ## Используемый стек ##
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python-original.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
-<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest-original.svg" title="Pytest" alt="Pytest" width="40" height="40"/>&nbsp;
-<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenium-original.svg" title="Selenium" alt="Selenium" width="40" height="40"/>&nbsp;
-<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="40" height="40"/>&nbsp;
-<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/github-original.svg" title="GitHub" alt="GitHub" width="40" height="40"/>&nbsp;
-<img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure-report.png" title="Allure Report" alt="Allure Report" width="40" height="40"/>&nbsp;
+  <img src="/resources/python.png" title="Python" alt="Python" width="50" height="50"/>&nbsp;
+  <img src="/resources/Pytest_logo.svg" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
+  <img src="/resources/selenoid.png" title="Selenoid" alt="Selenoid" width="50" height="50"/>&nbsp;
+  <img src="/resources/Jenkins .png" title="Jenkins" alt="Jenkins" width="50" height="50"/>&nbsp;
+  <img src="/resources/github.png" title="GitHub" alt="GitHub" width="50" height="50"/>&nbsp;
+  <img src="/resources/allure.png" title="Allure Report" alt="Allure Report" width="50" height="50"/>&nbsp;
 </div>
 
 ---
@@ -76,3 +76,7 @@ pytest tests \
   --headless=true \
   --window_width=1920 \
   --window_height=1080
+
+# Отчеты о тестировании приходят в чат Telegram #
+
+![This is an image](/resources/primer.png)
