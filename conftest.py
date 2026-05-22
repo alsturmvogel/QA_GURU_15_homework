@@ -25,8 +25,17 @@ def load_env():
     load_dotenv()
 
 
+@pytest.fixture(scope='session')
+def mock_chat_platform_url():
+    return 'https://stepanenko-mock-chat-platform.tutu.rc.rus.tutu.pro'
+
+
 @pytest.fixture(scope='function', autouse=True)
 def browser_management(request):
+    if request.node.get_closest_marker('api'):
+        yield
+        return
+
     base_url = request.config.getoption('--base_url')
     remote_url = request.config.getoption('--remote_url')
     browser_name = request.config.getoption('--browser_name')

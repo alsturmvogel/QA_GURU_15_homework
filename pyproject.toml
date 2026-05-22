@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "qa-guru-15-homework"
+version = "0.1.0"
+description = "UI and API tests for tutu.ru and mock chat platform"
+authors = ["guscha <guscha@example.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^9.0.2"
+selene = "^2.0.0rc9"
+selenium = "^4.35.0"
+python-dotenv = "^1.1.1"
+allure-pytest = "^2.15.0"
+requests = "^2.32.5"
+jsonschema = "^4.25.1"
+
+[tool.pytest.ini_options]
+markers = [
+    "api: marks tests as API tests without browser setup"
+]
+filterwarnings = [
+    "ignore::urllib3.exceptions.InsecureRequestWarning"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

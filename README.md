@@ -1,9 +1,9 @@
-# UI автотесты для tutu.ru #
+# UI и API автотесты для tutu.ru #
 
 ## Описание проекта ##
 
-Проект содержит UI-автотесты для сайта [tutu.ru](https://www.tutu.ru/) с использованием **Python + Pytest + Selene +
-Selenium + Allure**.
+Проект содержит UI- и API-автотесты для сайта [tutu.ru](https://www.tutu.ru/) и тестового mock chat platform с использованием **Python + Pytest + Selene +
+Selenium + Allure + Requests + JSON Schema**.
 
 Объект тестирования — чат-ассистент **Джарвел**.
 
@@ -14,6 +14,7 @@ Selenium + Allure**.
 - отправка текстового сообщения;
 - запуск голосовой записи;
 - загрузка файла в чат.
+- валидация JSON Schema ответа синхронного API mock chat platform.
 
 ---
 
@@ -54,12 +55,26 @@ Selenium + Allure**.
 
 ## Пример локального запуска ##
 
+### Установка зависимостей через Poetry
+
+```bash
+poetry install
+```
+
+### Запуск всех тестов
+
 pytest tests \
 --base_url=https://www.tutu.ru \
 --browser_name=chrome \
 --headless=false \
 --window_width=1920 \
 --window_height=1080
+
+### Запуск API-теста на schema validation
+
+```bash
+poetry run pytest tests/test_mock_chat_api_schema.py -v
+```
 
 ## Пример headless-запуска ##
 

@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "queryId": {
+        "type": "string"
+      },
+      "chatId": {
+        "type": "string"
+      },
+      "transferSignal": {
+        "type": "boolean"
+      },
+      "isAnswerFinished": {
+        "type": "boolean"
+      },
+      "isPurchaseFlowStarted": {
+        "type": "boolean"
+      },
+      "messages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "textMetaInfo": {
+              "type": "array",
+              "items": {
+                "items": {}
+              }
+            },
+            "buttons": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "text"
+                    ]
+                  }
+                },
+                "required": [
+                  "text",
+                  "type"
+                ]
+              }
+            }
+          },
+          "required": [
+            "text",
+            "textMetaInfo",
+            "buttons"
+          ]
+        }
+      }
+    },
+    "required": [
+      "queryId",
+      "chatId",
+      "transferSignal",
+      "isAnswerFinished",
+      "isPurchaseFlowStarted",
+      "messages"
+    ]
+  }
+}
