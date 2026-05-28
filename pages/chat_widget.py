@@ -56,17 +56,20 @@ class ChatWidget:
         self._switch_to_default_content()
         return self
 
-    def send_hello_message(self):
+    def send_message(self, text: str):
         self._switch_to_iframe()
 
-        with allure.step('Ввести сообщение "Привет" в поле чата'):
-            browser.element(self.MESSAGE_INPUT).should(be.visible).type('Привет')
+        with allure.step(f'Ввести сообщение "{text}" в поле чата'):
+            browser.element(self.MESSAGE_INPUT).should(be.visible).type(text)
 
         with allure.step('Отправить сообщение нажатием Enter'):
             browser.element(self.MESSAGE_INPUT).press_enter()
 
         self._switch_to_default_content()
         return self
+
+    def send_hello_message(self):
+        return self.send_message('Привет')
 
     def should_have_sent_hello_and_reply(self):
         self._switch_to_iframe()
@@ -130,6 +133,17 @@ class ChatWidget:
         with allure.step('Проверить ответ ассистента после загрузки файла'):
             browser.all(self.MESSAGE_TEXTS).element_by(
                 have.text('Напишите ваш вопрос, пожалуйста.')
+            ).should(be.visible)
+
+        self._switch_to_default_content()
+        return self
+
+    def should_have_reply_containing(self, expected_text: str):
+        self._switch_to_iframe()
+
+        with allure.step(f'Проверить, что ответ ассистента содержит текст: "{expected_text[:60]}..."'):
+            browser.all(self.MESSAGE_TEXTS).element_by(
+                have.text(expected_text)
             ).should(be.visible)
 
         self._switch_to_default_content()
