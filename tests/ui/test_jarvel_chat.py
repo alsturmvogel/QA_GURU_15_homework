@@ -46,7 +46,7 @@ def test_user_can_upload_file_to_chat():
     main_page = MainPage()
     chat_widget = ChatWidget()
 
-    file_path = Path(__file__).parent.parent / 'resources' / 'test_file.docx'
+    file_path = Path(__file__).parent.parent.parent / 'resources' / 'test_file.docx'
     assert file_path.exists(), f'Файл не найден: {file_path}'
 
     main_page.open()

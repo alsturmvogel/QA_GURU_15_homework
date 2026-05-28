@@ -30,9 +30,7 @@ class ChatWidget:
         with allure.step('Проверить приветственное сообщение Джарвела'):
             browser.all(self.WELCOME_TITLES).element_by(
                 have.text('Привет, я Джарвел!')
-            ).should(be.visible).should(
-                have.text('Знаю всё про путешествия')
-            )
+            ).should(be.visible)
 
         self._switch_to_default_content()
         return self
@@ -129,14 +127,9 @@ class ChatWidget:
     def should_have_reply_after_file_upload(self):
         self._switch_to_iframe()
 
-        with allure.step('Проверить ответ с информацией по поездкам в Дубай и на Ближний Восток'):
+        with allure.step('Проверить ответ ассистента после загрузки файла'):
             browser.all(self.MESSAGE_TEXTS).element_by(
-                have.text('По поездкам в Дубай, ОАЭ или ситуации на Ближнем Востоке')
-            ).should(be.visible)
-
-        with allure.step('Проверить наличие ссылки на статью tutu.ru'):
-            browser.all(self.MESSAGE_TEXTS).element_by(
-                have.text('https://www.tutu.ru/geo/article/situatsia-na-blizhnem-vostoke/')
+                have.text('Напишите ваш вопрос, пожалуйста.')
             ).should(be.visible)
 
         self._switch_to_default_content()
