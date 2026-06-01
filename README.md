@@ -1,9 +1,8 @@
-# UI и API автотесты для tutu.ru #
+# UI, API и Mobile автотесты для tutu.ru #
 
 ## Описание проекта ##
 
-Проект содержит UI- и API-автотесты для сайта [tutu.ru](https://www.tutu.ru/) и тестового mock chat platform с использованием **Python + Pytest + Selene +
-Selenium + Allure + Requests + JSON Schema**.
+Проект содержит UI-, API- и мобильные автотесты для сайта [tutu.ru](https://www.tutu.ru/), тестового mock chat platform и нативного Android-приложения с использованием **Python + Pytest + Selene + Selenium + Appium + Allure + Requests + JSON Schema**.
 
 Объект тестирования — чат-ассистент **Джарвел**.
 
@@ -14,9 +13,13 @@ Selenium + Allure + Requests + JSON Schema**.
 - отправка текстового сообщения;
 - запуск голосовой записи;
 - загрузка файла в чат;
+- **двухуровневая проверка ответа ассистента: API как precondition для UI-теста**;
 - валидация JSON Schema ответа синхронного API mock chat platform;
 - проверка блокировки запросов про запрещённые страны и регионы (geo safety);
-- проверка наличия пометки для запрещённых экстремистских организаций.
+- проверка наличия пометки для запрещённых экстремистских организаций;
+- проверка наличия кнопки-ссылки на поиск билетов в ответе ассистента;
+- проверка сигнала передачи чата оператору поддержки (`transferSignal`);
+- **мобильные тесты нативного Android-приложения через BrowserStack App Automate**.
 
 ---
 
@@ -24,12 +27,16 @@ Selenium + Allure + Requests + JSON Schema**.
 
 ```
 tests/
-├── api/                          # API-тесты (без браузера)
+├── api/                               # API-тесты (без браузера)
 │   ├── test_mock_chat_api_schema.py   # Валидация JSON Schema ответа
 │   ├── test_unsafe_geo_safety.py      # Блокировка запрещённых локаций
-│   └── test_extremist_marker.py       # Пометка экстремистских организаций
-└── ui/                           # UI-тесты (браузер)
-    └── test_jarvel_chat.py            # Тесты чата Джарвел на tutu.ru
+│   ├── test_extremist_marker.py       # Пометка экстремистских организаций
+│   ├── test_transport_link_button.py  # Кнопка-ссылка на поиск билетов
+│   └── test_support_transfer_signal.py # Сигнал передачи чата оператору
+├── ui/                                # UI-тесты (браузер)
+│   └── test_jarvel_chat.py            # Тесты чата Джарвел на tutu.ru
+└── mobile/                            # Мобильные тесты (BrowserStack App Automate)
+    └── test_jarvel_mobile.py          # Тесты нативного Android-приложения
 ```
 
 ---
@@ -63,7 +70,8 @@ tests/
     - `Помогу с обменом и возвратом заказа. Если надо, позову оператора`
 - отправку текстового сообщения `Привет`;
 - запуск голосового ввода;
-- загрузку файла в чат и получение ответа.
+- загрузку файла в чат и получение ответа;
+- **двухуровневую проверку ответа ассистента** (`test_jarvel_ui_response_matches_api_response`).
 
 ### API-тесты (`tests/api/`)
 
@@ -103,11 +111,55 @@ tests/
 Тест не падает, если ассистент не упомянул запрещённую организацию.
 Тест падает, если организация упомянута, но пометки нет.
 
+### Мобильные тесты (`tests/mobile/`)
+
+Тесты запускаются на реальном устройстве **Samsung Galaxy S22 (Android 12)** через **BrowserStack App Automate**.
+
+Проверяют нативное Android-приложение Туту:
+
+| Тест | Описание |
+|---|---|
+| `test_jarvel_welcome_message_is_visible` | Открытие чата Джарвел и проверка приветственного сообщения |
+| `test_your_trip_section_is_visible` | Проверка наличия раздела «Ваша поездка» |
+| `test_show_button_opens_empty_trip_state` | Нажатие «Показать» и проверка пустого состояния поездок |
+
+**Особенности:**
+- Автоматически закрывается баннер-опрос «Предложим только нужное», если он появляется при старте
+- После каждого теста видео сессии из BrowserStack прикрепляется к Allure-отчёту
+- Все шаги логируются через `with allure.step()`
+
 ---
 
 # Параметризованный запуск тестов #
 
 Проект поддерживает запуск с параметрами из терминала.
+
+## Настройка окружения ##
+
+Скопируйте `.env.example` в `.env` и заполните переменные:
+
+```bash
+cp .env.example .env
+```
+
+```dotenv
+# Web / Selenoid
+SELENOID_LOGIN=your_selenoid_login
+SELENOID_PASSWORD=your_selenoid_password
+
+# BrowserStack App Automate (мобильные тесты)
+BROWSERSTACK_USERNAME=your_browserstack_username
+BROWSERSTACK_ACCESS_KEY=your_browserstack_access_key
+BROWSERSTACK_APP_URL=bs://your_app_url_after_upload
+```
+
+Для получения `BROWSERSTACK_APP_URL` загрузите APK на BrowserStack:
+
+```bash
+curl -u "USERNAME:ACCESS_KEY" \
+  -X POST "https://api-cloud.browserstack.com/app-automate/upload" \
+  -F "file=@resources/apk/your_app.apk"
+```
 
 ## Пример локального запуска ##
 
@@ -141,6 +193,19 @@ poetry run pytest tests/ui/ -v \
 --base_url=https://www.tutu.ru \
 --browser_name=chrome \
 --headless=false
+```
+
+### Запуск мобильных тестов (BrowserStack)
+
+```bash
+poetry run pytest tests/mobile/ -v
+```
+
+### Запуск с генерацией Allure-отчёта
+
+```bash
+poetry run pytest tests/mobile/ --alluredir=allure-results
+allure serve allure-results
 ```
 
 ### Запуск конкретного API-теста
