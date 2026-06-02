@@ -183,7 +183,7 @@ pytest tests \
 ### Запуск только API-тестов
 
 ```bash
-poetry run pytest tests/api/ -v
+poetry run pytest tests/api/ -v --alluredir=allure-results
 ```
 
 ### Запуск только UI-тестов
@@ -192,13 +192,14 @@ poetry run pytest tests/api/ -v
 poetry run pytest tests/ui/ -v \
 --base_url=https://www.tutu.ru \
 --browser_name=chrome \
---headless=false
+--headless=false \
+--alluredir=allure-results
 ```
 
 ### Запуск мобильных тестов (BrowserStack)
 
 ```bash
-poetry run pytest tests/mobile/ -v
+poetry run pytest tests/mobile/ -v --alluredir=allure-results
 ```
 
 ### Запуск с генерацией Allure-отчёта
@@ -212,13 +213,13 @@ allure serve allure-results
 
 ```bash
 # Валидация JSON Schema
-poetry run pytest tests/api/test_mock_chat_api_schema.py -v
+poetry run pytest tests/api/test_mock_chat_api_schema.py -v --alluredir=allure-results
 
 # Тесты безопасности геолокаций
-poetry run pytest tests/api/test_unsafe_geo_safety.py -v
+poetry run pytest tests/api/test_unsafe_geo_safety.py -v --alluredir=allure-results
 
 # Тесты пометки экстремистских организаций
-poetry run pytest tests/api/test_extremist_marker.py -v
+poetry run pytest tests/api/test_extremist_marker.py -v --alluredir=allure-results
 ```
 
 ## Пример headless-запуска ##

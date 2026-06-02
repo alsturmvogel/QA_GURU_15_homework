@@ -13,6 +13,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
+from config import BrowserStackConfig, BrowserStackSessionConfig, DeviceConfig
 from utils import attach
 
 
@@ -38,43 +39,39 @@ def mock_chat_platform_url():
 
 @pytest.fixture(scope='function')
 def appium_driver(load_env):
-    bs_username = os.getenv('BROWSERSTACK_USERNAME')
-    bs_access_key = os.getenv('BROWSERSTACK_ACCESS_KEY')
-
-    if not bs_username or not bs_access_key:
+    if not BrowserStackConfig.username or not BrowserStackConfig.access_key:
         raise ValueError(
             'Для запуска мобильных тестов необходимо указать '
             'BROWSERSTACK_USERNAME и BROWSERSTACK_ACCESS_KEY в .env'
         )
 
-    app_url = os.getenv('BROWSERSTACK_APP_URL')
-    if not app_url:
+    if not BrowserStackConfig.app_url:
         raise ValueError(
             'Для запуска мобильных тестов необходимо указать '
             'BROWSERSTACK_APP_URL в .env (например: bs://abc123...)'
         )
 
     options = UiAutomator2Options()
-    options.set_capability('platformName', 'android')
-    options.set_capability('deviceName', 'Samsung Galaxy S22')
-    options.set_capability('platformVersion', '12.0')
-    options.set_capability('app', app_url)
-    options.set_capability('automationName', 'UiAutomator2')
+    options.set_capability('platformName', DeviceConfig.platform_name)
+    options.set_capability('deviceName', DeviceConfig.device_name)
+    options.set_capability('platformVersion', DeviceConfig.platform_version)
+    options.set_capability('app', BrowserStackConfig.app_url)
+    options.set_capability('automationName', DeviceConfig.automation_name)
     options.set_capability('bstack:options', {
-        'userName': bs_username,
-        'accessKey': bs_access_key,
-        'projectName': 'QA GURU 15 Homework',
-        'buildName': 'Jarvel Mobile Tests',
-        'sessionName': 'Jarvel Android Test',
-        'debug': True,
-        'networkLogs': True,
+        'userName': BrowserStackConfig.username,
+        'accessKey': BrowserStackConfig.access_key,
+        'projectName': BrowserStackSessionConfig.project_name,
+        'buildName': BrowserStackSessionConfig.build_name,
+        'sessionName': BrowserStackSessionConfig.session_name,
+        'debug': BrowserStackSessionConfig.debug,
+        'networkLogs': BrowserStackSessionConfig.network_logs,
     })
 
     driver = appium_webdriver.Remote(
-        command_executor='https://hub.browserstack.com/wd/hub',
+        command_executor=BrowserStackConfig.hub_url,
         options=options,
     )
-    driver.implicitly_wait(20)
+    driver.implicitly_wait(DeviceConfig.implicit_wait)
 
     yield driver
 
@@ -84,8 +81,8 @@ def appium_driver(load_env):
 
     try:
         response = requests.get(
-            f'https://api-cloud.browserstack.com/app-automate/sessions/{session_id}.json',
-            auth=(bs_username, bs_access_key),
+            BrowserStackConfig.api_url.format(session_id=session_id),
+            auth=(BrowserStackConfig.username, BrowserStackConfig.access_key),
             timeout=15,
         )
         video_url = response.json().get('automation_session', {}).get('video_url')

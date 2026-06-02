@@ -10,6 +10,8 @@ from uuid import uuid4
 import pytest
 import requests
 
+from utils.attach import add_api_request, add_api_response
+
 
 MOCK_MESSAGES_ENDPOINT = '/sync/messages'
 SYNC_REQUEST_TIMEOUT = 60
@@ -44,6 +46,7 @@ def test_unsafe_geo_returns_refusal(mock_chat_platform_url, query):
     к ассистенту и возвращает ответ. Проверяет, что текст ответа содержит
     стандартную фразу отказа для запрещённых локаций.
     """
+    request_url = f'{mock_chat_platform_url}{MOCK_MESSAGES_ENDPOINT}'
     payload = {
         'chatId': str(uuid4()),
         'messages': [
@@ -56,12 +59,14 @@ def test_unsafe_geo_returns_refusal(mock_chat_platform_url, query):
         'cardsEnabled': False,
     }
 
+    add_api_request(method='POST', url=request_url, payload=payload)
     response = requests.post(
-        f'{mock_chat_platform_url}{MOCK_MESSAGES_ENDPOINT}',
+        request_url,
         json=payload,
         timeout=SYNC_REQUEST_TIMEOUT,
         verify=False,
     )
+    add_api_response(response)
 
     assert response.status_code == 200, (
         f'Ожидался статус 200, получен {response.status_code}.\n'
