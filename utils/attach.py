@@ -1,6 +1,11 @@
-import allure
 import json
+import logging
+
+import allure
 from allure_commons.types import AttachmentType
+
+
+api_logger = logging.getLogger('api_tests')
 
 
 def add_screenshot(browser):
@@ -44,6 +49,7 @@ def add_api_request(method, url, payload=None, headers=None):
         'headers': headers or {},
         'payload': payload,
     }
+    api_logger.info('api_request method=%s client_url=%s', method, url)
     allure.attach(
         _to_pretty_json(request_data),
         'api_request',
@@ -63,6 +69,11 @@ def add_api_response(response):
         'url': response.url,
         'body': response_body,
     }
+    api_logger.info(
+        'api_response status_code=%s client_url=%s',
+        response.status_code,
+        response.url,
+    )
     allure.attach(
         _to_pretty_json(response_data),
         'api_response',

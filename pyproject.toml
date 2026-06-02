@@ -19,6 +19,10 @@ Appium-Python-Client = "^5.3.1"
 
 [tool.pytest.ini_options]
 addopts = "--clean-alluredir"
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s | %(levelname)s | %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
 markers = [
     "api: marks tests as API tests without browser setup",
     "geo_safety: marks tests as geo safety checks for forbidden locations",
