@@ -2,7 +2,7 @@
 name = "qa-guru-15-homework"
 version = "0.1.0"
 description = "UI and API tests for tutu.ru and mock chat platform"
-authors = ["guscha <guscha@example.com>"]
+authors = ["guscha <guscha@tutu.ru>"]
 readme = "README.md"
 package-mode = false
 
