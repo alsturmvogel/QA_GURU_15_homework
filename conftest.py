@@ -6,14 +6,13 @@ import pytest
 import requests
 from allure_commons.types import AttachmentType
 from appium import webdriver as appium_webdriver
-from appium.options.android import UiAutomator2Options
 from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
-from config import BrowserStackConfig, BrowserStackSessionConfig, DeviceConfig
+from config import BrowserStackConfig, DeviceConfig, get_browserstack_credentials, get_mobile_options
 from utils import attach
 
 
@@ -25,6 +24,7 @@ def pytest_addoption(parser):
     parser.addoption('--headless', default='false')
     parser.addoption('--window_width', default='1920')
     parser.addoption('--window_height', default='1080')
+    parser.addoption('--mobile_context', default='browserstack')
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -33,56 +33,56 @@ def load_env():
 
 
 @pytest.fixture(scope='session')
+def mobile_context(request):
+    return request.config.getoption('--mobile_context')
+
+
+@pytest.fixture(scope='session')
+def mobile_env_file(mobile_context):
+    env_map = {
+        'browserstack': '.env.mobile.browserstack',
+        'local_real_device': '.env.mobile.local_real_device',
+    }
+
+    try:
+        return env_map[mobile_context]
+    except KeyError as error:
+        raise ValueError(
+            f'Unsupported mobile context: {mobile_context}. '
+            'Use one of: browserstack, local_real_device'
+        ) from error
+
+
+@pytest.fixture(scope='session')
 def mock_chat_platform_url():
     return 'https://stepanenko-mock-chat-platform.tutu.rc.rus.tutu.pro'
 
 
 @pytest.fixture(scope='function')
-def appium_driver(load_env):
-    if not BrowserStackConfig.username or not BrowserStackConfig.access_key:
-        raise ValueError(
-            'Для запуска мобильных тестов необходимо указать '
-            'BROWSERSTACK_USERNAME и BROWSERSTACK_ACCESS_KEY в .env'
-        )
-
-    if not BrowserStackConfig.app_url:
-        raise ValueError(
-            'Для запуска мобильных тестов необходимо указать '
-            'BROWSERSTACK_APP_URL в .env (например: bs://abc123...)'
-        )
-
-    options = UiAutomator2Options()
-    options.set_capability('platformName', DeviceConfig.platform_name)
-    options.set_capability('deviceName', DeviceConfig.device_name)
-    options.set_capability('platformVersion', DeviceConfig.platform_version)
-    options.set_capability('app', BrowserStackConfig.app_url)
-    options.set_capability('automationName', DeviceConfig.automation_name)
-    options.set_capability('bstack:options', {
-        'userName': BrowserStackConfig.username,
-        'accessKey': BrowserStackConfig.access_key,
-        'projectName': BrowserStackSessionConfig.project_name,
-        'buildName': BrowserStackSessionConfig.build_name,
-        'sessionName': BrowserStackSessionConfig.session_name,
-        'debug': BrowserStackSessionConfig.debug,
-        'networkLogs': BrowserStackSessionConfig.network_logs,
-    })
+def appium_driver(load_env, mobile_context, mobile_env_file):
+    load_dotenv(mobile_env_file, override=True)
+    options, remote_url = get_mobile_options(mobile_context)
 
     driver = appium_webdriver.Remote(
-        command_executor=BrowserStackConfig.hub_url,
+        command_executor=remote_url,
         options=options,
     )
     driver.implicitly_wait(DeviceConfig.implicit_wait)
 
     yield driver
 
-    # Прикрепить видео сессии из BrowserStack к Allure-отчёту
     session_id = driver.session_id
     driver.quit()
+
+    if mobile_context != 'browserstack':
+        return
+
+    username, access_key = get_browserstack_credentials()
 
     try:
         response = requests.get(
             BrowserStackConfig.api_url.format(session_id=session_id),
-            auth=(BrowserStackConfig.username, BrowserStackConfig.access_key),
+            auth=(username, access_key),
             timeout=15,
         )
         video_url = response.json().get('automation_session', {}).get('video_url')

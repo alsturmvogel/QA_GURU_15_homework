@@ -139,6 +139,9 @@ celerybeat.pid
 
 # Environments
 .env
+.env.mobile.browserstack
+.env.mobile.browserstack.credentials
+.env.mobile.local_real_device
 .envrc
 .venv
 env/

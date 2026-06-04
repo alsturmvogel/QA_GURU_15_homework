@@ -136,7 +136,7 @@ tests/
 
 ## Настройка окружения ##
 
-Скопируйте `.env.example` в `.env` и заполните переменные:
+Скопируйте `.env.example` в `.env` и заполните web-переменные:
 
 ```bash
 cp .env.example .env
@@ -146,14 +146,30 @@ cp .env.example .env
 # Web / Selenoid
 SELENOID_LOGIN=your_selenoid_login
 SELENOID_PASSWORD=your_selenoid_password
-
-# BrowserStack App Automate (мобильные тесты)
-BROWSERSTACK_USERNAME=your_browserstack_username
-BROWSERSTACK_ACCESS_KEY=your_browserstack_access_key
-BROWSERSTACK_APP_URL=bs://your_app_url_after_upload
 ```
 
-Для получения `BROWSERSTACK_APP_URL` загрузите APK на BrowserStack:
+Для mobile-тестов используются отдельные env-файлы:
+
+### BrowserStack
+
+`.env.mobile.browserstack`
+
+```dotenv
+REMOTE_URL=https://hub.browserstack.com/wd/hub
+DEVICE_NAME=Samsung Galaxy S22
+PLATFORM_NAME=Android
+PLATFORM_VERSION=12.0
+APP=bs://your_app_url_after_upload
+```
+
+`.env.mobile.browserstack.credentials`
+
+```dotenv
+BROWSERSTACK_USERNAME=your_browserstack_username
+BROWSERSTACK_ACCESS_KEY=your_browserstack_access_key
+```
+
+Для получения `APP` загрузите APK на BrowserStack:
 
 ```bash
 curl -u "USERNAME:ACCESS_KEY" \
@@ -199,13 +215,32 @@ poetry run pytest tests/ui/ -v \
 ### Запуск мобильных тестов (BrowserStack)
 
 ```bash
-poetry run pytest tests/mobile/ -v --alluredir=allure-results
+poetry run pytest tests/mobile/ -v --mobile_context=browserstack --alluredir=allure-results
+```
+
+### Запуск мобильных тестов на локальном Android-устройстве
+
+Создайте файл `.env.mobile.local_real_device`:
+
+```dotenv
+REMOTE_URL=http://127.0.0.1:4723
+DEVICE_NAME=your_android_device_name
+PLATFORM_NAME=Android
+AUTOMATION_NAME=UiAutomator2
+APP=resources/apk/your_app.apk
+# UDID=optional_device_udid
+```
+
+После этого запустите тесты:
+
+```bash
+poetry run pytest tests/mobile/ -v --mobile_context=local_real_device --alluredir=allure-results
 ```
 
 ### Запуск с генерацией Allure-отчёта
 
 ```bash
-poetry run pytest tests/mobile/ --alluredir=allure-results
+poetry run pytest tests/mobile/ --mobile_context=browserstack --alluredir=allure-results
 allure serve allure-results
 ```
 
