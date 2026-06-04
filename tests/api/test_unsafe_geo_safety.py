@@ -4,14 +4,13 @@
 на mock-эндпоинт и проверяет, что ассистент отвечает стандартной фразой отказа.
 """
 
-import urllib3
 from uuid import uuid4
 
 import pytest
 import requests
+import urllib3
 
 from utils.attach import add_api_request, add_api_response
-
 
 MOCK_MESSAGES_ENDPOINT = '/sync/messages'
 SYNC_REQUEST_TIMEOUT = 60

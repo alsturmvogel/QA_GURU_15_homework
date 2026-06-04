@@ -15,7 +15,6 @@ import requests
 
 from utils.attach import add_api_request, add_api_response
 
-
 MOCK_MESSAGES_ENDPOINT = '/sync/messages'
 SYNC_REQUEST_TIMEOUT = 120
 
@@ -124,10 +123,10 @@ def _find_link_meta(text_meta_info: list) -> dict | None:
 @pytest.mark.api
 @pytest.mark.parametrize('query, expected_web_prefix, expected_deeplink_prefix', TRANSPORT_QUERIES)
 def test_transport_response_has_link_button(
-    mock_chat_platform_url,
-    query,
-    expected_web_prefix,
-    expected_deeplink_prefix,
+        mock_chat_platform_url,
+        query,
+        expected_web_prefix,
+        expected_deeplink_prefix,
 ):
     """Проверяет, что ответ на запрос билетов содержит кнопку-ссылку в textMetaInfo.
 

@@ -4,7 +4,6 @@ import logging
 import allure
 from allure_commons.types import AttachmentType
 
-
 api_logger = logging.getLogger('api_tests')
 
 

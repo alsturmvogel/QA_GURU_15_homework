@@ -1,14 +1,13 @@
 import json
-import urllib3
 from pathlib import Path
 from uuid import uuid4
 
-import requests
-from jsonschema import validate
 import pytest
+import requests
+import urllib3
+from jsonschema import validate
 
 from utils.attach import add_api_request, add_api_response
-
 
 SCHEMA_PATH = Path(__file__).parent.parent.parent / 'resources' / 'schemas' / 'sync_messages_response.schema.json'
 SYNC_MESSAGES_ENDPOINT = '/sync/messages'

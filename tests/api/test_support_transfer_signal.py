@@ -4,14 +4,13 @@
 ответ API содержит "transferSignal": true.
 """
 
-import urllib3
 from uuid import uuid4
 
 import pytest
 import requests
+import urllib3
 
 from utils.attach import add_api_request, add_api_response
-
 
 MOCK_MESSAGES_ENDPOINT = '/sync/messages'
 SYNC_REQUEST_TIMEOUT = 120
