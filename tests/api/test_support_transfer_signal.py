@@ -12,8 +12,7 @@ import urllib3
 
 from utils.attach import add_api_request, add_api_response
 
-MOCK_MESSAGES_ENDPOINT = '/sync/messages'
-SYNC_REQUEST_TIMEOUT = 120
+from tests.constants import EXTENDED_SYNC_REQUEST_TIMEOUT, SYNC_MESSAGES_ENDPOINT
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -57,7 +56,7 @@ def test_support_request_sets_transfer_signal(mock_chat_platform_url, query):
     transferSignal: true означает, что ассистент передаёт чат оператору поддержки.
     """
     chat_id = str(uuid4())
-    request_url = f'{mock_chat_platform_url}{MOCK_MESSAGES_ENDPOINT}'
+    request_url = f'{mock_chat_platform_url}{SYNC_MESSAGES_ENDPOINT}'
     payload = {
         'chatId': chat_id,
         'messages': [
@@ -74,7 +73,7 @@ def test_support_request_sets_transfer_signal(mock_chat_platform_url, query):
     response = requests.post(
         request_url,
         json=payload,
-        timeout=SYNC_REQUEST_TIMEOUT,
+        timeout=EXTENDED_SYNC_REQUEST_TIMEOUT,
         verify=False,
     )
     add_api_response(response)

@@ -76,11 +76,12 @@ poetry install
 cp .env.example .env
 ```
 
-Переменные для удалённого web-запуска:
+Переменные в `.env`:
 
 ```dotenv
 SELENOID_LOGIN=your_login
 SELENOID_PASSWORD=your_password
+MOCK_CHAT_PLATFORM_URL=https://stepanenko-mock-chat-platform.tutu.rc.rus.tutu.pro
 ```
 
 ---

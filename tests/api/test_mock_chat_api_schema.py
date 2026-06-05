@@ -10,8 +10,7 @@ from jsonschema import validate
 from utils.attach import add_api_request, add_api_response
 
 SCHEMA_PATH = Path(__file__).parent.parent.parent / 'resources' / 'schemas' / 'sync_messages_response.schema.json'
-SYNC_MESSAGES_ENDPOINT = '/sync/messages'
-SYNC_REQUEST_TIMEOUT = 30
+from tests.constants import SCHEMA_SYNC_REQUEST_TIMEOUT, SYNC_MESSAGES_ENDPOINT
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -37,7 +36,7 @@ def test_sync_messages_response_matches_schema(mock_chat_platform_url):
     response = requests.post(
         request_url,
         json=payload,
-        timeout=SYNC_REQUEST_TIMEOUT,
+        timeout=SCHEMA_SYNC_REQUEST_TIMEOUT,
         verify=False,
     )
     add_api_response(response)

@@ -8,8 +8,7 @@ import requests
 from pages.chat_widget import ChatWidget
 from pages.main_page import MainPage
 
-SYNC_MESSAGES_ENDPOINT = '/sync/messages'
-SYNC_REQUEST_TIMEOUT = 60
+from tests.constants import DEFAULT_SYNC_REQUEST_TIMEOUT, SYNC_MESSAGES_ENDPOINT
 
 
 def test_user_can_see_welcome_message():
@@ -92,7 +91,7 @@ def test_jarvel_ui_response_matches_api_response(mock_chat_platform_url):
         response = requests.post(
             f'{mock_chat_platform_url}{SYNC_MESSAGES_ENDPOINT}',
             json=payload,
-            timeout=SYNC_REQUEST_TIMEOUT,
+            timeout=DEFAULT_SYNC_REQUEST_TIMEOUT,
             verify=False,
         )
 

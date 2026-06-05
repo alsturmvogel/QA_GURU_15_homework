@@ -68,7 +68,7 @@ class MobileJarvelScreen:
         """Закрыть баннер-опрос, если он появился при запуске приложения."""
         with allure.step('Закрыть баннер-опрос (если отображается)'):
             try:
-                close_btn = self.short_wait.until(
+                self.short_wait.until(
                     EC.presence_of_element_located(self.CLOSE_BANNER_BUTTON)
                 )
                 # Нажимаем на родительский кликабельный элемент
@@ -130,7 +130,6 @@ class MobileJarvelScreen:
             raise TimeoutException(
                 'Не удалось найти или нажать кнопку "Джарвел" ни по одному из локаторов'
             ) from last_exception
-        return self
 
     def should_have_welcome_message(self):
         with allure.step('Проверить приветственное сообщение Джарвела'):

@@ -54,7 +54,10 @@ def mobile_env_file(mobile_context):
 
 @pytest.fixture(scope='session')
 def mock_chat_platform_url():
-    return 'https://stepanenko-mock-chat-platform.tutu.rc.rus.tutu.pro'
+    url = os.getenv('MOCK_CHAT_PLATFORM_URL')
+    if not url:
+        raise ValueError('Не указана переменная MOCK_CHAT_PLATFORM_URL в .env')
+    return url
 
 
 @pytest.fixture(scope='function')

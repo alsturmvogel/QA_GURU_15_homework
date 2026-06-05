@@ -12,8 +12,7 @@ import urllib3
 
 from utils.attach import add_api_request, add_api_response
 
-MOCK_MESSAGES_ENDPOINT = '/sync/messages'
-SYNC_REQUEST_TIMEOUT = 60
+from tests.constants import DEFAULT_SYNC_REQUEST_TIMEOUT, SYNC_MESSAGES_ENDPOINT
 
 UNSAFE_GEO_REFUSAL_TEXT = (
     'К сожалению, я не уполномочен отвечать на такие вопросы. '
@@ -45,7 +44,7 @@ def test_unsafe_geo_returns_refusal(mock_chat_platform_url, query):
     к ассистенту и возвращает ответ. Проверяет, что текст ответа содержит
     стандартную фразу отказа для запрещённых локаций.
     """
-    request_url = f'{mock_chat_platform_url}{MOCK_MESSAGES_ENDPOINT}'
+    request_url = f'{mock_chat_platform_url}{SYNC_MESSAGES_ENDPOINT}'
     payload = {
         'chatId': str(uuid4()),
         'messages': [
@@ -62,7 +61,7 @@ def test_unsafe_geo_returns_refusal(mock_chat_platform_url, query):
     response = requests.post(
         request_url,
         json=payload,
-        timeout=SYNC_REQUEST_TIMEOUT,
+        timeout=DEFAULT_SYNC_REQUEST_TIMEOUT,
         verify=False,
     )
     add_api_response(response)

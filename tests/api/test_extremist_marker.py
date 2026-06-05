@@ -17,8 +17,7 @@ import urllib3
 
 from utils.attach import add_api_request, add_api_response
 
-MOCK_MESSAGES_ENDPOINT = '/sync/messages'
-SYNC_REQUEST_TIMEOUT = 120
+from tests.constants import EXTENDED_SYNC_REQUEST_TIMEOUT, SYNC_MESSAGES_ENDPOINT
 
 # Константы из app/safety/extremist.py (дублируем, т.к. это другой проект)
 EXTREMIST_NOTICE = '* (экстремистская организация, запрещена в РФ)'
@@ -83,7 +82,7 @@ def test_extremist_notice_present_when_org_mentioned(mock_chat_platform_url, que
     Если упомянул — обязательно должна быть пометка EXTREMIST_NOTICE.
     """
     chat_id = str(uuid4())
-    request_url = f'{mock_chat_platform_url}{MOCK_MESSAGES_ENDPOINT}'
+    request_url = f'{mock_chat_platform_url}{SYNC_MESSAGES_ENDPOINT}'
     payload = {
         'chatId': chat_id,
         'messages': [
@@ -100,7 +99,7 @@ def test_extremist_notice_present_when_org_mentioned(mock_chat_platform_url, que
     response = requests.post(
         request_url,
         json=payload,
-        timeout=SYNC_REQUEST_TIMEOUT,
+        timeout=EXTENDED_SYNC_REQUEST_TIMEOUT,
         verify=False,
     )
     add_api_response(response)
