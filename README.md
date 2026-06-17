@@ -9,13 +9,13 @@
 ## Используемый стек
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png" title="Python" alt="Python" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png" title="JSON Schema" alt="JSON Schema" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png" title="Selenium / Selenoid" alt="Selenium / Selenoid" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png" title="Jenkins" alt="Jenkins" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png" title="Appium" alt="Appium" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png" title="Allure Report" alt="Allure Report" width="50" height="50"/>
+  <img src="media/python.png" title="Python" alt="Python" width="50" height="50"/>&nbsp;
+  <img src="media/pytest_logo.png" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
+  <img src="media/JSON_Schema.png" title="JSON Schema" alt="JSON Schema" width="50" height="50"/>&nbsp;
+  <img src="media/selenoid.png" title="Selenium / Selenoid" alt="Selenium / Selenoid" width="50" height="50"/>&nbsp;
+  <img src="media/jenkins.png" title="Jenkins" alt="Jenkins" width="50" height="50"/>&nbsp;
+  <img src="media/appium.png" title="Appium" alt="Appium" width="50" height="50"/>&nbsp;
+  <img src="media/allure.png" title="Allure Report" alt="Allure Report" width="50" height="50"/>
 </p>
 
 <p align="center">
