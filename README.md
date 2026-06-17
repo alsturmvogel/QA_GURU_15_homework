@@ -2,7 +2,6 @@
 
 Проект содержит автотесты для web UI `tutu.ru`, mock chat platform API и нативного Android-приложения с чатом Джарвел.
 
-Основной стек: **Python + Pytest + Selene + Selenium + Requests + Appium + Allure + JSON Schema**.
 
 ---
 
