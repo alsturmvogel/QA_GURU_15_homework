@@ -8,19 +8,15 @@
 
 ## Используемый стек
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png" title="Python" alt="Python" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png" title="JSON Schema" alt="JSON Schema" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png" title="Selenium / Selenoid" alt="Selenium / Selenoid" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png" title="Jenkins" alt="Jenkins" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png" title="Appium" alt="Appium" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png" title="Allure Report" alt="Allure Report" width="50" height="50"/>
-</p>
+[![Python](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png)
+[![Pytest](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png)
+[![JSON Schema](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png)
+[![Selenoid](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png)
+[![Jenkins](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png)
+[![Appium](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png)
+[![Allure](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png)
 
-<p align="center">
-  <b>Python</b> • <b>Pytest</b> • <b>JSON Schema</b> • <b>Selenoid</b> • <b>Jenkins</b> • <b>Appium</b> • <b>Allure</b>
-</p>
+**Python** • **Pytest** • **JSON Schema** • **Selenoid** • **Jenkins** • **Appium** • **Allure**
 
 ---
 
