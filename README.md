@@ -11,11 +11,13 @@
 <div align="center">
   <table>
     <tr>
-      <td align="center"><img src="media/python.png" title="Python" alt="Python" width="50" height="50"/><br>Python</td>
-      <td align="center"><img src="media/pytest_logo.png" title="Pytest" alt="Pytest" width="50" height="50"/><br>Pytest</td>
-      <td align="center"><img src="media/selenoid.png" title="Selenium / Selenoid" alt="Selenium / Selenoid" width="50" height="50"/><br>Selenoid</td>
-      <td align="center"><img src="media/jenkins.png" title="Jenkins" alt="Jenkins" width="50" height="50"/><br>Jenkins</td>
-      <td align="center"><img src="media/allure.png" title="Allure Report" alt="Allure Report" width="50" height="50"/><br>Allure</td>
+      <td align="center"><img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png" title="Python" alt="Python" width="50" height="50"/><br>Python</td>
+      <td align="center"><img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png" title="Pytest" alt="Pytest" width="50" height="50"/><br>Pytest</td>
+      <td align="center"><img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png" title="JSON Schema" alt="JSON Schema" width="50" height="50"/><br>JSON Schema</td>
+      <td align="center"><img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png" title="Selenium / Selenoid" alt="Selenium / Selenoid" width="50" height="50"/><br>Selenoid</td>
+      <td align="center"><img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png" title="Jenkins" alt="Jenkins" width="50" height="50"/><br>Jenkins</td>
+      <td align="center"><img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png" title="Appium" alt="Appium" width="50" height="50"/><br>Appium</td>
+      <td align="center"><img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png" title="Allure Report" alt="Allure Report" width="50" height="50"/><br>Allure</td>
     </tr>
   </table>
 </div>
@@ -65,7 +67,8 @@ tests/
 
 pages/      # page object'ы для web и mobile
 utils/      # вложения и вспомогательные утилиты
-resources/  # схемы, изображения, тестовые файлы
+media/      # изображения для README
+resources/  # схемы и тестовые файлы
 config.py   # mobile-конфиги и capabilities
 conftest.py # фикстуры, CLI-параметры и driver setup
 ```
