@@ -9,12 +9,15 @@
 ## Используемый стек
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/python.png" title="Python" alt="Python" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/pytest_logo.png" title="Pytest" alt="Pytest" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/selenoid.png" title="Selenium / Selenoid" alt="Selenium / Selenoid" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/jenkins.png" title="Jenkins" alt="Jenkins" width="50" height="50"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/resources/github.png" title="GitHub" alt="GitHub" width="50" height="50"/>&nbsp;
-  <img src="https://github.com/alsturmvogel/QA_GURU_15_homework/blob/a190fb7e74b7f21e0bb7982dc71a8acc2afbcfcf/resources/allure.png" title="Allure Report" alt="Allure Report" width="50" height="50"/>&nbsp;
+  <table>
+    <tr>
+      <td align="center"><img src="media/python.png" title="Python" alt="Python" width="50" height="50"/><br>Python</td>
+      <td align="center"><img src="media/pytest_logo.png" title="Pytest" alt="Pytest" width="50" height="50"/><br>Pytest</td>
+      <td align="center"><img src="media/selenoid.png" title="Selenium / Selenoid" alt="Selenium / Selenoid" width="50" height="50"/><br>Selenoid</td>
+      <td align="center"><img src="media/jenkins.png" title="Jenkins" alt="Jenkins" width="50" height="50"/><br>Jenkins</td>
+      <td align="center"><img src="media/allure.png" title="Allure Report" alt="Allure Report" width="50" height="50"/><br>Allure</td>
+    </tr>
+  </table>
 </div>
 
 ---
