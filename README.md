@@ -7,13 +7,27 @@
 
 ## Используемый стек
 
-[![Python](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png)
-[![Pytest](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png)
-[![JSON Schema](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png)
-[![Selenoid](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png)
-[![Jenkins](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png)
-[![Appium](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png)
-[![Allure](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png)](https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png)
+<a href="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png" rel="nofollow">
+  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/python.png" alt="Python" style="max-width: 100%;" height="50" width="50">
+</a>
+<a href="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png" rel="nofollow">
+  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/pytest_logo.png" alt="Pytest" style="max-width: 100%;" height="50" width="50">
+</a>
+<a href="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png" rel="nofollow">
+  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/JSON_Schema.png" alt="JSON Schema" style="max-width: 100%;" height="50" width="50">
+</a>
+<a href="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png" rel="nofollow">
+  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/selenoid.png" alt="Selenoid" style="max-width: 100%;" height="50" width="50">
+</a>
+<a href="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png" rel="nofollow">
+  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/jenkins.png" alt="Jenkins" style="max-width: 100%;" height="50" width="50">
+</a>
+<a href="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png" rel="nofollow">
+  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/appium.png" alt="Appium" style="max-width: 100%;" height="50" width="50">
+</a>
+<a href="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png" rel="nofollow">
+  <img src="https://raw.githubusercontent.com/alsturmvogel/QA_GURU_15_homework/main/media/allure.png" alt="Allure" style="max-width: 100%;" height="50" width="50">
+</a>
 
 **Python** • **Pytest** • **JSON Schema** • **Selenoid** • **Jenkins** • **Appium** • **Allure**
 
