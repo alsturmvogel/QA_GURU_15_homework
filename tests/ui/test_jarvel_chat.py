@@ -5,10 +5,9 @@ import allure
 import pytest
 import requests
 
+from config import ApiConfig
 from pages.chat_widget import ChatWidget
 from pages.main_page import MainPage
-
-from tests.constants import DEFAULT_SYNC_REQUEST_TIMEOUT, SYNC_MESSAGES_ENDPOINT
 
 
 def test_user_can_see_welcome_message():
@@ -89,9 +88,9 @@ def test_jarvel_ui_response_matches_api_response(mock_chat_platform_url):
         }
 
         response = requests.post(
-            f'{mock_chat_platform_url}{SYNC_MESSAGES_ENDPOINT}',
+            f'{mock_chat_platform_url}{ApiConfig.sync_messages_endpoint}',
             json=payload,
-            timeout=DEFAULT_SYNC_REQUEST_TIMEOUT,
+            timeout=ApiConfig.default_sync_request_timeout,
             verify=False,
         )
 

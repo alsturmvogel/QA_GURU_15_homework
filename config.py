@@ -7,6 +7,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+class ApiConfig:
+    sync_messages_endpoint: str = '/sync/messages'
+    default_sync_request_timeout: int = 60
+    extended_sync_request_timeout: int = 120
+    schema_sync_request_timeout: int = 30
+
+
 class BrowserStackSessionConfig:
     project_name: str = 'QA GURU 15 Homework'
     build_name: str = 'Jarvel Mobile Tests'
